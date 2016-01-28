@@ -1,0 +1,10 @@
+PODS:
+  - ABCalendarPicker (1.1.2)
+
+DEPENDENCIES:
+  - ABCalendarPicker (~> 1.1)
+
+SPEC CHECKSUMS:
+  ABCalendarPicker: dfa1269abd0d7b5697c9abe3001d31e5b901ed4b
+
+COCOAPODS: 0.39.0
