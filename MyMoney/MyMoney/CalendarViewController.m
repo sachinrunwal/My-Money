@@ -50,7 +50,7 @@
 
     self.myView.delegate=self;
     [self.segmentControlView setSelectedSegmentIndex:0];
-    self.a=@"Expense";
+    self.trasactionType=@"Expense";
   //  [self.expenceTableView flashScrollIndicators];
 
     
@@ -123,15 +123,15 @@
 
     if(self.segmentControlView.selectedSegmentIndex==0)
     {
-    self.a=@"Expense";
+    self.trasactionType=@"Expense";
 }
 if(self.segmentControlView.selectedSegmentIndex==1)
 {
-    self.a=@"Saving";
+    self.trasactionType=@"Saving";
 }
 if(self.segmentControlView.selectedSegmentIndex==2)
 {
-    self.a=@"Income";
+    self.trasactionType=@"Income";
 }
     
     [self updateTableView];
@@ -152,13 +152,13 @@ if(self.segmentControlView.selectedSegmentIndex==2)
         [vc setExpDate:self.myView.highlightedDate];
         
        
-if([self.a isEqualToString:@"Expense"])
+if([self.trasactionType isEqualToString:@"Expense"])
 {
     
     [vc setTitle:@"Expense"];
     
 }
-    else if([self.a isEqualToString:@"Income"])
+    else if([self.trasactionType isEqualToString:@"Income"])
         {
             [vc setTitle:@"Income"];
             
@@ -185,7 +185,7 @@ if([self.a isEqualToString:@"Expense"])
     NSDate *newDate = [cal dateFromComponents:comps ];
     AppDelegate *aDel=(AppDelegate *)[[UIApplication sharedApplication ] delegate];
     NSFetchRequest *req=[[NSFetchRequest alloc] initWithEntityName:@"Trasaction"];
-    if([self.a isEqualToString:@"Expense"])
+    if([self.trasactionType isEqualToString:@"Expense"])
     {
         
         
@@ -199,7 +199,7 @@ if([self.a isEqualToString:@"Expense"])
         // self.navigationItem.rightBarButtonItem.enabled=YES;
     }
     
-    if([self.a isEqualToString:@"Saving"])
+    if([self.trasactionType isEqualToString:@"Saving"])
     {
         NSPredicate *predicate = [NSPredicate predicateWithFormat:@"date == %@ and type==2",newDate];
         
@@ -209,7 +209,7 @@ if([self.a isEqualToString:@"Expense"])
         
     }
     
-    if([self.a isEqualToString:@"Income"])
+    if([self.trasactionType isEqualToString:@"Income"])
     {
         NSPredicate *predicate = [NSPredicate predicateWithFormat:@"date == %@ and type==3",newDate];
         
@@ -263,7 +263,7 @@ if([self.a isEqualToString:@"Expense"])
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     
-    UITableViewCell *cell=[tableView dequeueReusableCellWithIdentifier:@"abc" forIndexPath:indexPath];
+    UITableViewCell *cell=[tableView dequeueReusableCellWithIdentifier:@"Cell" forIndexPath:indexPath];
   ExpenceInfo *info  =[self.data objectAtIndex:indexPath.row];
   NSString *you = [NSString stringWithFormat:@"%@ %@ %@ %@",info.reason,info.amount,info.discription,info.type];
     cell.textLabel.text=you;

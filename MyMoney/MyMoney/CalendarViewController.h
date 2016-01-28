@@ -20,7 +20,7 @@
 
 @property (weak, nonatomic) IBOutlet ABCalendarPicker *calendarPicker;
 
-@property (weak,nonatomic) NSString *a;
+@property (weak,nonatomic) NSString *trasactionType;
 
 @property (weak, nonatomic) IBOutlet UISegmentedControl *segmentControlView;
 
